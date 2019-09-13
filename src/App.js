@@ -6,7 +6,7 @@ import { getTrips } from './actions/trips'
 
 class App extends Component {
   componentDidMount(){
-    this.props.gettrips()
+    this.props.getTrips()
   }
   render(){
     const trips = this.props.trips.map((trip, i) => <li key={i}> {trip.name} - {trip.location} - {trip.completed ? "Completed" : "Coming Up"}</li>);
