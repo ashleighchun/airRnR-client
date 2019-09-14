@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { getTrips } from './actions/trips'
 
 class App extends Component {
+  //componentdidmount will cause it to fire off first get trip when the component mounted
   componentDidMount(){
     this.props.getTrips()
   }

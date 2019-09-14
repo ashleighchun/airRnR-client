@@ -16,3 +16,4 @@ case 'FETCH_TRIPS':
       return state;
   }
 }  //**** action objects come from your action object creator functions
+// be prepared to answer questions about async feature 
