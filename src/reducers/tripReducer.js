@@ -5,7 +5,13 @@ export default (state = {trips: [], loading: false}, action ) => {
         ...state,
         loading:true
       }
-      
+
+case 'FETCH_TRIPS':
+  return {
+    trips: action.payload,
+    loading: false
+  }
+
     default:
       return state;
   }
