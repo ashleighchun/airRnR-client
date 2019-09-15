@@ -24,7 +24,7 @@ class TripForm extends Component {
       loading: false
     }) //addTrip is available to use because I connected dispatch to props
   }
-  
+
 
   render() {
     return (
@@ -35,8 +35,9 @@ class TripForm extends Component {
           value={this.state.name}
           onChange={this.handleOnChange}
           />
+          <button type='submit'> Add New Trip </button>
         </form>
-        <button type='submit'> Add New Trip </button>
+
       </div>
     )
   }

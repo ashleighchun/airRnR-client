@@ -11,7 +11,7 @@ class App extends Component {
     this.props.getTrips()
   }
   render(){
-    const trips = this.props.trips.map((trip, i) => <li key={i}> {trip.name} - {trip.location} - {trip.completed ? "Completed" : "Coming Up"}</li>);
+    const trips = this.props.trips.map((trip, i) => <li key={i}>{trip.name} - {trip.location} - {trip.completed ? "Completed" : "Coming Up"}</li>);
     return (
       <div className="App">
         <h2>Create Trip</h2>
