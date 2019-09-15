@@ -13,7 +13,7 @@ export const addTrip = (trip) => {
     return fetch('/trips', {
       method: 'POST',
       body: JSON.stringify(trip),
-      headers:{
+      headers: {
         'Content-Type': 'application/json'
       }
     })

@@ -24,7 +24,7 @@ class TripForm extends Component {
       loading: false
     }) //addTrip is available to use because I connected dispatch to props
   }
-  }
+  
 
   render() {
     return (
