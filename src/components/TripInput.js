@@ -27,7 +27,7 @@ class TripInput extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>New Trip Name: </label>
+          <label>New Trip Title: </label>
           <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>
           <input type="submit"/>
         </form>
