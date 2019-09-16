@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import TripsIndex from '../components/TripsIndex'
 import TripForm from '../components/TripForm'
 
