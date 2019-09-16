@@ -5,6 +5,10 @@ import TripForm from '../components/TripForm'
 
 class TripsContainer extends React.Component {
 
+  componentDidMount() {
+
+  }
+  
   render() {
     return (
       <div>
@@ -15,4 +19,9 @@ class TripsContainer extends React.Component {
   }
 }
 
-export default TripsContainer
+const mapStateToProps = state => {
+  return {
+    trips: state.trips
+  }
+}
+export default connect(mapStateToProps)(TripsContainer)
