@@ -3,7 +3,7 @@ export default (state = {trips: [], loading: false}, action ) => {
     case 'LOADING_TRIPS':
       return {
         ...state,
-        loading:true
+        loading: true
       }
 
     case 'FETCH_TRIPS':

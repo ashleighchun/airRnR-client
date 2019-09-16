@@ -1,10 +1,12 @@
-export const getTrips = () => {
+export const fetchTrips = () => {
+
+
   return (dispatch) => {
     dispatch({type: 'LOADING_TRIPS'})
     return fetch('./trips')  //this fetch returns a promise object that can be pending, resolved, or caught for error
     .then(resp => resp.json())
     .then(trips => dispatch({type: "FETCH_TRIPS", payload: trips}))
-  } //thunk returns two step thing so that we dont dispatch payload of fetch todos until the promise has been resolved
+  } //thunk returns two step thing so that we dont dispatch payload of fetch trips until the promise has been resolved
 }
 
 export const addTrip = (trip) => {
