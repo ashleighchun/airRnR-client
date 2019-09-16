@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { getTrips } from './actions/trips'
-import TripForm from './containers/TripForm'
+import TripForm from './components/TripForm'
 
 //componentdidmount will cause it to fire off first get trips when the component mounted
 class App extends Component {

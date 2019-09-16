@@ -30,14 +30,15 @@ class TripForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
+        <label>Trip Name: </label>
           <input
           type="text"
           value={this.state.name}
+          name="name"
           onChange={this.handleOnChange}
-          />
+          /><br/>
           <button type='submit'> Add New Trip </button>
         </form>
-
       </div>
     )
   }
