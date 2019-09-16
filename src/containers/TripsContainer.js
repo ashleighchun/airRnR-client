@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {fetchTrips} from '../actions/fetchTrips'
 import TripsIndex from '../components/TripsIndex'
-import TripForm from '../components/TripForm'
+import TripInput from '../components/TripInput'
 
 class TripsContainer extends React.Component {
 
@@ -13,7 +13,7 @@ class TripsContainer extends React.Component {
   render() {
     return (
       <div>
-        <TripForm />
+        <TripInput />
         <TripsIndex />
       </div>
     )
