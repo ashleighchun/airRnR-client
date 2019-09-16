@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
-import { fetchTrips } from './actions/trips'
+import { getTrips } from './actions/trips'
 import TripForm from './containers/TripForm'
 
 //componentdidmount will cause it to fire off first get trips when the component mounted
 class App extends Component {
   componentDidMount(){
-    this.props.fetchTrips()
+    this.props.getTrips()
   }
   render(){
     const trips = this.props.trips.map((trip, i) => <li key={i}> {trip.name} - {trip.completed ? "Completed" : "Coming Up"}</li>);
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => {
     loading: state.tripReducer.loading
   }
 }
-export default connect(mapStateToProps, { fetchTrips })(App);
+export default connect(mapStateToProps, { getTrips })(App);

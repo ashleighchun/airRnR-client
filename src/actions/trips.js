@@ -1,4 +1,4 @@
-export const fetchTrips = () => {
+export const getTrips = () => {
 
 
   return (dispatch) => {
