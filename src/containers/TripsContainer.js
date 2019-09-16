@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {fetchTrips} from '../actions/fetchTrips'
-import TripsIndex from '../components/TripsIndex'
+import Trips from '../components/Trips'
 import TripInput from '../components/TripInput'
 
 class TripsContainer extends React.Component {
-
+//get trips from backend:
   componentDidMount() {
     this.props.fetchTrips()
   }
@@ -13,8 +13,8 @@ class TripsContainer extends React.Component {
   render() {
     return (
       <div>
-        <TripInput />
-        <TripsIndex />
+        <TripInput/>
+        <Trips/>
       </div>
     )
   }
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
     trips: state.trips
   }
 }
-export default connect(mapStateToProps)(TripsContainer)
+export default connect(mapStateToProps, {fetchTrips})(TripsContainer)

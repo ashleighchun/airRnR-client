@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const TripsIndex = (props) => {
+const Trips = (props) => {
 
   return (
     <div>
@@ -11,4 +11,4 @@ const TripsIndex = (props) => {
   )
 }
 
-export default TripsIndex
+export default Trips
