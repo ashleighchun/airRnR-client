@@ -5,9 +5,8 @@ const Trips = (props) => {
 
   return (
     <div>
-      Trips
+      {props.trips.map(trip => <li key={trip.id}> {trip.name} </li> )}
     </div>
-
   )
 }
 
