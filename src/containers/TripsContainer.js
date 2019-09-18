@@ -16,7 +16,9 @@ class TripsContainer extends React.Component {
       <div>
         <Route path='/trips/new' component={TripInput}/>
         <hr/>
-        <Route exact path='/trips' render={() => <Trips trips={this.props.trips}/>}/ >
+        <Route path='/accounts/:id' render={(routerProps) => <Trips trips={this.props.trips}/>}/ >
+        <hr/>
+        <Route exact path='/trips' render={(routerProps) => <Trips trips={this.props.trips}/>}/ >
       </div>
     )
   }
