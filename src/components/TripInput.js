@@ -30,7 +30,12 @@ class TripInput extends React.Component {
     event.preventDefault()
     this.props.addTrip(this.state)
     this.setState({
-      name: ''
+      name: '',
+      location: '',
+      start_date: '',
+      end_date: '',
+      budget: '',
+      details: ''
     })
   }
 

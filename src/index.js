@@ -15,8 +15,8 @@ let store = createStore(tripReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
-
+    <Router>
       <App/>
-
+    </Router>
   </Provider>,
   document.getElementById('root'));
