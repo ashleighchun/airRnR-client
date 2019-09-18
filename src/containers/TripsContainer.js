@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {fetchTrips} from '../actions/fetchTrips'
 import Trips from '../components/Trips'
+import {Route} from 'react-router-dom'
 import TripInput from '../components/TripInput'
 
 class TripsContainer extends React.Component {
@@ -13,9 +14,9 @@ class TripsContainer extends React.Component {
   render() {
     return (
       <div>
-        <TripInput/>
+        <Route path='/trips/new' component={TripInput}/>
         <hr/>
-        <Trips trips={this.props.trips}/>
+        <Route exact path='/trips' render={() => <Trips trips={this.props.trips}/>}/ >
       </div>
     )
   }
