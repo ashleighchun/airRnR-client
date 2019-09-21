@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {fetchTrips} from '../actions/fetchTrips'
 import Trips from '../components/Trips'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import TripInput from '../components/TripInput'
 
 class TripsContainer extends React.Component {
@@ -14,11 +14,13 @@ class TripsContainer extends React.Component {
   render() {
     return (
       <div>
+      <Switch>
         <Route path='/trips/new' component={TripInput}/>
         <hr/>
         <Route path='/trips/:id' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/ >
         <hr/>
-        <Route exact path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/ >
+        <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/ >
+        </Switch>
       </div>
     )
   }

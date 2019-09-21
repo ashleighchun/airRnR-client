@@ -7,9 +7,9 @@ const Trips = (props) => {
   return (
     <div>
       {props.trips.map(trip =>
-        <div key={trip.id}>
-          <li><Link to={`/trips/${trip.id}`}>{trip.name}</Link></li>
-        </div> )}
+        <li key={trip.id}>
+          <Link to={`/trips/${trip.id}`}>{trip.name}</Link>
+        </li> )}
     </div>
   )
 }
