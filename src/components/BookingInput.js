@@ -66,4 +66,4 @@ class BookingInput extends React.Component {
   }
 }
 
-export default BookingInput
+export default connect(null, {addBooking})(BookingInput)
