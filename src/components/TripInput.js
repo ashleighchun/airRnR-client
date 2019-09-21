@@ -8,9 +8,9 @@ class TripInput extends React.Component {
   state = {
     name: '',
     location: '',
-    start_date: null,
-    end_date: null,
-    budget: null,
+    start_date: '',
+    end_date: '',
+    budget: '',
     details: ''
 
   }
