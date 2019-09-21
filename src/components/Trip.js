@@ -1,6 +1,6 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
-import editTrip from './actions/editTrip'
+import TripEdit from './TripEdit'
 import BookingsContainer from '../containers/BookingsContainer'
 
 const Trip = (props) => {
