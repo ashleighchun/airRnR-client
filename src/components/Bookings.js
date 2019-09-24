@@ -1,16 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {deleteBooking} from '../actions/deleteBooking'
 
 const Bookings = (props) => {
 
-  consoe.log(props.bookings)
+  console.log(props.bookings)
+  const handleDelete = (booking) => {
+
+   props.deleteBooking(booking.id, booking.trip_id)
+ }
 
   return (
     <div>
-      {props.bookings && props.bookings.map(transaction =>
+      {props.bookings && props.bookings.map(booking =>
         <li key={booking.id}> {booking.booking_type} - {booking.cost} - {booking.start_date} - {booking.end_date}</li>
       )}
     </div>
   )
 }
 
-export default Bookings
+
+export default connect(null, {deleteBooking})(Bookings)

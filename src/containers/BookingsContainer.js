@@ -8,7 +8,7 @@ class BookingsContainer extends React.Component {
 
     return (
       <div>
-        <BookingInput/>
+        <BookingInput trip={this.props.trip}/>
         <Bookings bookings={this.props.trip && this.props.trip.bookings}/>
       </div>
     )

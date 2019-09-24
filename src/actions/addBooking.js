@@ -1,16 +1,17 @@
-export const addBooking = (data) => {
+export const addBooking = (booking, tripId) => {
 
   return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/trips', {
+    fetch(`http://localhost:3000/api/v1/trips/${tripId}/bookings`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      method: 'POST',
-      body: JSON.stringify(data)
+
+      body: JSON.stringify(booking)
     })
     .then(response => response.json())
-    .then(trip => dispatch({type: 'ADD_TRIP', payload: trip}))
+    .then(booking => dispatch({type: 'ADD_BOOKING', payload: booking}))
   }
 
 }

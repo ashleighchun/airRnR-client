@@ -1,4 +1,4 @@
-export default (state = {trips: [], loading: false}, action ) => {
+export default (state = {trips: []}, action ) => {
   switch (action.type) {
     case 'FETCH_TRIPS':
       return {trips: action.payload}

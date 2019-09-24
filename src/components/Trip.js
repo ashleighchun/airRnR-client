@@ -7,7 +7,6 @@ const Trip = (props) => {
 
 
   let trip = props.trips.filter(trip => trip.id == props.match.params.id)[0]
-  console.log(trip)
   return (
     <div>
       <h2>
