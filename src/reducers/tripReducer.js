@@ -14,23 +14,7 @@ export default function tripReducer(state = {trips: []}, action) {
         }
       })
       return {...state, trips: trips}
-    case 'DELETE_BOOKING':
-      let tripsTwo = state.trips.map(trip => {
-        if (trip.id === action.payload.id) {
-          return action.payload.id
-        } else {
-          return trip
-        }
-      })
-    case 'EDIT_TRIP':
-      let tripsThree = state.trips.map(trip => {
-        if (trip.id === action.payload.id) {
-          return action.payload
-        } else {
-          return trip
-        }
-      })
-      return {...state, trips: tripsThree}
+    
     default:
       return state
   }
