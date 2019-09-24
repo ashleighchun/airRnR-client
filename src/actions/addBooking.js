@@ -11,7 +11,7 @@ export const addBooking = (booking, tripId) => {
       body: JSON.stringify(booking)
     })
     .then(response => response.json())
-    .then(booking => dispatch({type: 'ADD_BOOKING', payload: booking}))
+    .then(trip => dispatch({type: 'ADD_BOOKING', payload: trip}))
   }
 
 }

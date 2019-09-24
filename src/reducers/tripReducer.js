@@ -1,9 +1,12 @@
-export default (state = {trips: []}, action ) => {
+export default function tripReducer(state = {trips: []}, action) {
+  debugger;
   switch (action.type) {
     case 'FETCH_TRIPS':
       return {trips: action.payload}
     case 'ADD_TRIP':
       return {...state, trips: [...state.trips, action.payload]}
+    case 'ADD_BOOKING':
+      return {}
     default:
       return state
   }
