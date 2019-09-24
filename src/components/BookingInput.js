@@ -50,13 +50,13 @@ class BookingInput extends React.Component {
           <input type="text" name="cost" value={this.state.cost} onChange={this.handleChange}/>
 
           <label>Start Date:</label>
-          <input type="text" name="cost" value={this.state.start_date} onChange={this.handleChange}/>
+          <input type="text" name="start_date" value={this.state.start_date} onChange={this.handleChange}/>
 
           <label>End Date:</label>
-          <input type="text" name="cost" value={this.state.end_date} onChange={this.handleChange}/>
+          <input type="text" name="end_date" value={this.state.end_date} onChange={this.handleChange}/>
 
           <label>Notes:</label>
-          <input type="text" name="cost" value={this.state.notes} onChange={this.handleChange}/>
+          <input type="text" name="notes" value={this.state.notes} onChange={this.handleChange}/>
 
           <input type="submit"/>
 
