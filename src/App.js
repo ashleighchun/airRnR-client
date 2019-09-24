@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux'
-import { fetchTrips } from './actions/fetchTrips'
+
 import TripsContainer from './containers/TripsContainer'
 
 
