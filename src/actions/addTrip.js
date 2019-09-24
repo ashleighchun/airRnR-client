@@ -1,7 +1,7 @@
 export const addTrip = (data) => {
 
   return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/trips', {
+    fetch('http://localhost:3000/trips', {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
