@@ -1,12 +1,14 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import TripEdit from './TripEdit'
+
 import BookingsContainer from '../containers/BookingsContainer'
 
 const Trip = (props) => {
 
 
   let trip = props.trips.filter(trip => trip.id == props.match.params.id)[0]
+
   return (
     <div>
       <h2>
