@@ -8,7 +8,7 @@ import {addBooking} from '../actions/addBooking'
 class BookingInput extends React.Component {
 
   state = {
-    booking_type: '',
+    booking_type: 'flight',
     cost: '',
     start_date: '',
     end_date: '',
@@ -25,7 +25,7 @@ class BookingInput extends React.Component {
     event.preventDefault()
     this.props.addBooking(this.state, this.props.trip.id)
     this.setState({
-      booking_type: '',
+      booking_type: 'flight',
       cost: '',
       start_date: '',
       end_date: '',

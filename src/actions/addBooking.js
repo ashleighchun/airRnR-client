@@ -14,7 +14,7 @@ export const addBooking = (booking, tripId) => {
         if (trip.error) {
           alert(trip.error)
         } else {
-          dispatch({type: 'ADD_BOOKING', payload: trip}))
+          dispatch({type: 'ADD_BOOKING', payload: trip})
         }
       }
     )

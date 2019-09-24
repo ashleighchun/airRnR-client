@@ -13,7 +13,7 @@ const Bookings = (props) => {
   return (
     <div>
       {props.bookings && props.bookings.map(booking =>
-        <li key={booking.id}> {booking.booking_type} - {booking.cost} - {booking.start_date} - {booking.end_date}</li>
+        <li key={booking.id}> {booking.booking_type} - {booking.cost} - {booking.start_date} - {booking.end_date} <button onClick={() => handleDelete(booking)}>Delete</button></li>
       )}
     </div>
   )
