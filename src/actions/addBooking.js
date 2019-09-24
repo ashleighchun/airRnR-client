@@ -5,13 +5,18 @@ export const addBooking = (booking, tripId) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
       },
 
       body: JSON.stringify(booking)
     })
     .then(response => response.json())
-    .then(trip => dispatch({type: 'ADD_BOOKING', payload: trip}))
+    .then(trip => {
+        if (trip.error) {
+          alert(trip.error)
+        } else {
+          dispatch({type: 'ADD_BOOKING', payload: trip}))
+        }
+      }
+    )
   }
-
 }
