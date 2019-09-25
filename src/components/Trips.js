@@ -1,17 +1,13 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
-import Trip from './Trip'
+import TripForm from '../../containers/TripForm'
+import TripList from '../../containers/TripList'
 
-const Trips = (props) => {
-
-  return (
-    <div>
-      {props.trips.map(trip =>
-        <li key={trip.id}>
-          <Link to={`/trips/${trip.id}`}>{trip.name}</Link>
-        </li> )}
-    </div>
+const Trips = () => (
+      <div>
+        <TripForm />
+        <TripList />
+      </div>
   )
-}
+
 
 export default Trips
