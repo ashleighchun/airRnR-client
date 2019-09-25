@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+
 
 export function fetchTrips() {
   return (dispatch) => {

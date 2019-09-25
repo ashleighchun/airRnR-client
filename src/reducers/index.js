@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import tripReducer from './tripReducer'
-import bookingsReducer from './bookingssReducer'
+import bookingsReducer from './bookingsReducer'
 
 
 const rootReducer = combineReducers({
