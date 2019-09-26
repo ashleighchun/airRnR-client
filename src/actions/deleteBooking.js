@@ -1,6 +1,6 @@
 export const deleteBooking = (bookingId, tripId) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/trips/${tripId}/bookings/${bookingId}`, {
+    return fetch(`http://localhost:3001/trips/${tripId}/bookings/${bookingId}`, {
       method: 'DELETE'
     })
     .then(response => response.json())

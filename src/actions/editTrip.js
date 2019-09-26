@@ -1,6 +1,6 @@
 export const editTrip = (data) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/trips/${data.id}`, {
+    fetch(`http://localhost:3001/trips/${data.id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

@@ -1,4 +1,4 @@
-export function fetchTrips() {
+export const fetchTrips = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/trips')
     .then(resp => resp.json())
