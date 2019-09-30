@@ -24,14 +24,14 @@ componentDidMount(){
     return (
       <Router>
       <div className="App">
-      <h1>Welcome to AirRnR: Your Resource for Trip Scheduling</h1>
+        <h1>Welcome to AirRnR</h1>
       <NavBar />
-      <div >
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route path='/bookings' render={ routerProps => <BookingsContainer {...routerProps}  bookings={this.props.bookings} />} />
-      <Route path='/trips' render={ routerProps => < TripsContainer {...routerProps} trips={this.props.trips} />} />
-      </div>
+        <div >
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route path='/bookings' render={ routerProps => <BookingsContainer {...routerProps}  bookings={this.props.bookings} />} />
+          <Route path='/trips' render={ routerProps => < TripsContainer {...routerProps} trips={this.props.trips} />} />
+        </div>
       </div>
       </Router>
     )

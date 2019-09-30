@@ -1,75 +1,41 @@
-
-export const fetchBookings= ()=>{
-   return (dispatch) => {
-     dispatch({ type: 'LOADING_BOOKINGS' });
-     return fetch('/api/bookings')
-    .then(response => response.json())
-     .then(bookings => dispatch({ type: 'FETCH_BOOKINGS', payload: bookings }));
+export const fetchTrips= () => {
+  return (dispatch) => {
+  dispatch({ type: 'LOADING_TRIPS' });
+  return fetch('http://localhost:3001/api/trips')
+  .then(response => response.json())
+  .then(trips => dispatch({ type: 'FETCH_TRIPS', payload: trips }));
   };
-  //return fetch('/api/bookings').then(response=>response.json())
- }
-
- export const fetchTrips= ()=>{
-       return (dispatch) => {
-       dispatch({ type: 'LOADING_TRIPS' });
-       return fetch('/api/trips')
-      .then(response => response.json())
-      .then(trips => dispatch({ type: 'FETCH_TRIPS', payload: trips }));
-    };
   //  return fetch('/api/trips').then(response=>response.json());
-  };
+};
 
 
-  export const addBooking = (booking, tripId) => {
-
+export const addTrip = trip => {
+console.log("new trip action", action)
+  return (dispatch) => {
+    return fetch('http://localhost:3001/api/trips', {
+      method: 'POST',
+      body: JSON.stringify(trip),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(trip => dispatch({ type: 'NEW_TRIP_ADDED', payload: trip }));
+    };
+  }
+  export const editTrip = (data) => {
     return (dispatch) => {
-      fetch(`http://localhost:3001/trips/${tripId}/bookings`, {
-        method: 'POST',
+      fetch(`http://localhost:3001/trips/${data.id}`, {
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(booking)
+        method: 'PATCH',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
-      .then(trip => {
-          if (trip.error) {
-            alert(trip.error)
-          } else {
-            dispatch({type: 'ADD_BOOKING', payload: trip})
-          }
-        }
-      )
+      .then(trip => dispatch({type: 'EDIT_TRIP', payload: trip}))
     }
+
   }
-
-
-
-export const updateBooking = (data) => {
-  return (dispatch) => {
-  let body = JSON.stringify({data})
-  return fetch('/api/bookings/' + data.booking.id, {
-        method: 'PUT',
-        body: body,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json())
-      .then(booking => dispatch({type: 'UPDATE_BOOKING_SUCCESS', payload: booking}));
-  };
-}
-
-
-
-export const addTrip = trip =>{
-
-return (dispatch) => {
-  return fetch('/api/trips', {
-    method: 'POST',
-    body: JSON.stringify(trip),
-    headers:{
-      'Content-Type': 'application/json',
-    }
-  }).then(response => response.json())
-  .then(trip => dispatch({type: 'UPDATE_TRIP_SUCCESS', payload: trip }));
-  };
-}

@@ -7,7 +7,7 @@ const TripsContainer = ({ match, trips }) => (
   <div>
     <Trips trips={trips} />
     <Route exact path={match.url} render={() => (
-      <h3>Please select a Trip from the list.</h3>
+      <h3>To view details about a particular trip, select one of the trip links above.</h3>
     )}/>
     <Route path={`${match.url}/:tripId`} render={routerProps => <Trip trips={trips} {...routerProps} /> }/>
   </div>
