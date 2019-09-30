@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
-import '../App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import NavBar from '../components/NavBar'
-import Home from '../components/Home'
+import {connect} from 'react-redux'
+
+import { fetchTrips } from '../actions/tripActions'
+import { fetchBookings } from '../actions/bookingActions'
+
 import TripsContainer from './TripsContainer'
 import BookingsContainer from './BookingsContainer'
 
 import About from '../components/About'
+import NavBar from '../components/NavBar'
+import Home from '../components/Home'
 
-import {connect} from 'react-redux'
-
-import {fetchBookings, fetchTrips } from '../actions/tripActions'
+import '../App.css';
 
 class App extends Component{
 

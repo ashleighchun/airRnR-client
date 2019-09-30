@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 
 import { connect } from 'react-redux';
 
-import {updateBooking} from '../../actions/tripActions'
+import {updateBooking} from '../../actions/bookingActions'
 
 class BookingInput extends Component {
 

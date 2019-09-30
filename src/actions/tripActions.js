@@ -1,7 +1,7 @@
 export const fetchTrips= () => {
   return (dispatch) => {
   dispatch({ type: 'LOADING_TRIPS' });
-  return fetch('http://localhost:3001/api/trips')
+  return fetch('/api/trips')
   .then(response => response.json())
   .then(trips => dispatch({ type: 'FETCH_TRIPS', payload: trips }));
   };
@@ -10,9 +10,9 @@ export const fetchTrips= () => {
 
 
 export const addTrip = trip => {
-console.log("new trip action", action)
+console.log("new trip action", trip)
   return (dispatch) => {
-    return fetch('http://localhost:3001/api/trips', {
+    return fetch('/api/trips', {
       method: 'POST',
       body: JSON.stringify(trip),
       headers: {

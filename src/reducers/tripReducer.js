@@ -1,15 +1,13 @@
-export default ( state = { trips: [], loading: false }, action ) => {
+export default function tripReducer(
+  state = [] , action
+) {
   switch(action.type) {
-
     case 'FETCH_TRIPS':
-      return { ...state, loading: false, trips: action.payload };
-
+      return action.payload
     case 'LOADING_TRIPS':
-      return { ...state, loading: true };
-
+      return state;
     case 'NEW_TRIP_ADDED':
       return [...state, action.payload];
-
     default:
     return state;
   }
