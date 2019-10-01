@@ -1,22 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
-import Bookings from '../components/bookings/Bookings';
-import Booking from '../components/bookings/Booking';
+import { deleteBookinging } from '../actions/bookingingActions';
+import BookingCard from '../components/bookingings/BookingCard';
 import TripsContainer from './TripsContainer';
 
-import { deleteBooking } from '../actions/bookingActions';
+class BookingingsContainer extends Component {
+  state = {
+      tripFilter: "all"
+    }  handleOnClick = (event) => {
+    console.log("It works", event.target)
+    this.setState({
+      tripFilter: event.target.id
+    })
+  }
 
-const BookingsContainer = ({ match, bookings}) => (
-  <div>
-    <Bookings bookings={bookings} />
+  filteredBookings = (bookings) => {
+    if (this.state.tripFilter === "all") {
+      return bookings
+    } else {
+      return bookings.filter(booking => this.state.tripFilter === booking.trip_id.toString())
+    }
+  }
 
-    <h3>-OR-</h3>
-    <Route exact path={match.url} render={() => (
-      <h2>Select a Booking from the list:</h2>
-    )}/>
-    <Route path={`${match.url}/:bookingId`} render={routerProps => <Booking bookings={bookings} {...routerProps} /> }/>
-  </div>
-)
+  render(){
 
-export default BookingsContainer;
+    const bookings = this.filteredBookings(this.props.bookings).map(booking => <BookingCard key={booking.id} booking={booking} delete={this.props.deleteBooking} /> )
+
+    return (
+      <div>
+        <br/>
+        <h1>Booking List</h1>
+        <TripsContainer handleClick={this.handleOnClick} />
+        <br/>
+        <div class="flex-container">
+          {console.log("bookings", bookings)}
+          {this.props.loading ? <h3>Loading...</h3> : bookings }
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    bookings: state.bookingReducer.bookings,
+    loading: state.bookingReducer.loading
+  }
+}
+
+export default connect(mapStateToProps, { deleteBooking } )(BookingsContainer)
