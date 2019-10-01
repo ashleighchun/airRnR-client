@@ -6,7 +6,6 @@ const BookingCard = props => {
   return (
       <div>
       <Card className="card-style">
-        <Card.Img variant="top" src={props.booking.image} />
         <Card.Body>
           <Card.Title className="card-title-style">{props.booking.title}</Card.Title>
           <Card.Text>
