@@ -1,16 +1,30 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import Trips from '../components/trips/Trips';
-import Trip from '../components/trips/Trip';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import AllButton from '../components/AllButton'
+import TripButton from '../components/TripButton'
 
-const TripsContainer = ({ match, trips }) => (
-  <div>
-    <Trips trips={trips} />
-    <Route exact path={match.url} render={() => (
-      <h3>To view details about a particular trip, select one of the trip links above.</h3>
-    )}/>
-    <Route path={`${match.url}/:tripId`} render={routerProps => <Trip trips={trips} {...routerProps} /> }/>
-  </div>
-)
+class TripsContainer extends Component {
 
-export default TripsContainer;
+  render(){
+
+    const trips = this.props.trips.map(trip => <TripButton key={trip.id} trip={trip} handleThisClick={this.props.handleClick} /> )
+
+    return (
+      <div>
+        <h3>Select trip to filter bookings</h3>
+        <AllButton handleThisClick={this.props.handleClick} />
+        {/* { trips } */}
+        {this.props.loading ? <h3>Loading...</h3> : trips }
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    trips: state.tripReducer.trips,
+    loading: state.tripReducer.loading
+  }
+}
+
+export default connect(mapStateToProps)(TripsContainer)
