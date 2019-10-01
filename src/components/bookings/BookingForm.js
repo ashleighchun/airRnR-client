@@ -2,9 +2,9 @@ import React, { Component} from 'react';
 
 import { connect } from 'react-redux';
 
-import {updateBooking} from '../../actions/bookingActions'
+import {addBooking} from '../../actions/bookingActions'
 
-class BookingInput extends Component {
+class BookingForm extends Component {
 
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class BookingInput extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.updateBooking(this.state, this.props.trip.id)
+    this.props.addBooking(this.state, this.props.trip.id)
     this.setState({
       booking_type: 'flight',
       cost: '',
@@ -61,4 +61,4 @@ class BookingInput extends Component {
   }
 }
 
-export default connect(null, {updateBooking} )(BookingInput);
+export default connect(null, {addBooking} )(BookingForm);

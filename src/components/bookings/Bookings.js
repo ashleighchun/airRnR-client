@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import BookingForm from './BookingForm'
 
 const Bookings= ({bookings}) => {
   const renderBookings = bookings.map(booking =>
@@ -10,6 +10,9 @@ const Bookings= ({bookings}) => {
   );
   return (
     <div className="bookingsContainer">
+    <h2>Add a new Booking: </h2>
+      <BookingForm />
+
       {renderBookings}
     </div>
   )

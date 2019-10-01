@@ -1,5 +1,5 @@
 import React from 'react'
-import BookingInput from './BookingInput'
+import BookingForm from './BookingForm'
 
 
 const Booking = ({match, bookings}) => {
@@ -11,7 +11,7 @@ const Booking = ({match, bookings}) => {
     <p>Cost: {booking.cost}</p>
     <p>Notes: {booking.notes} </p>
 
-    <BookingInput booking={booking} />
+    <BookingForm booking={booking} />
   </div>
 )
 }

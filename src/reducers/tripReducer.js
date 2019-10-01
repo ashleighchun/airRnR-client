@@ -8,6 +8,7 @@ export default function tripReducer(
       return state;
     case 'NEW_TRIP_ADDED':
       return [...state, action.payload];
+    
     default:
     return state;
   }

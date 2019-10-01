@@ -5,10 +5,7 @@ import { addTrip } from '../../actions/tripActions'
 
 class TripInput extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  state = {
       name: '',
       trip_type: '',
       location: '',
@@ -16,24 +13,18 @@ class TripInput extends Component {
       end_date: '',
       total_cost: '',
       details: ''
-      };
     };
 
-  handleChange = (event) => {
+  handleOnChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
-      [event.target.trip_type]: event.target.value,
-      [event.target.location]: event.target.value,
-      [event.target.start_date]: event.target.value,
-      [event.target.end_date]: event.target.value,
-      [event.target.total_cost]: event.target.value,
-      [event.target.details]: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    this.props.addTrip(this.state)
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    const trip = this.state;
+    this.props.addTrip(trip);
     this.setState({
       name: '',
       trip_type: '',
@@ -47,12 +38,12 @@ class TripInput extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div id="tripform">
+        <form onSubmit={this.handleOnSubmit}>
           <label>New Trip Name: </label>
-          <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>
+          <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleOnChange}/><br/>
 
-          <select name="trip_type" value={this.state.trip_type} onChange={this.handleChange}>
+          <select name="trip_type" value={this.state.trip_type} onChange={this.handleOnChange}>
             <option>Vacation</option>
             <option>Business Trip</option>
             <option>Visit Family</option>
@@ -60,16 +51,16 @@ class TripInput extends Component {
           </select>
 
           <label>Location: </label>
-          <input type='text' placeholder='Location' value={this.state.location} name="location" onChange={this.handleChange}/><br/>
+          <input type='text' placeholder='Location' value={this.state.location} name="location" onChange={this.handleOnChange}/><br/>
 
           <label>Start Date: </label>
-          <input type='text' placeholder='Start' value={this.state.start_date} name="start_date" onChange={this.handleChange}/><br/>
+          <input type='text' placeholder='Start' value={this.state.start_date} name="start_date" onChange={this.handleOnChange}/><br/>
 
           <label>End Date: </label>
-          <input type='text' placeholder='End' value={this.state.end_date} name="end_date" onChange={this.handleChange}/><br/>
+          <input type='text' placeholder='End' value={this.state.end_date} name="end_date" onChange={this.handleOnChange}/><br/>
 
           <label>Details: </label>
-          <input type='text' value={this.state.details} name="details" onChange={this.handleChange}/><br/>
+          <input type='text' value={this.state.details} name="details" onChange={this.handleOnChange}/><br/>
 
           <input type="submit"/>
         </form>
@@ -79,4 +70,4 @@ class TripInput extends Component {
 }
 
 
-export default connect(null, {addTrip})(TripInput)
+export default connect(null, { addTrip })(TripInput)
