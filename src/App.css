@@ -1,64 +1,58 @@
+.wrapper {
+  background: #fff;
+  margin: 16px auto;
+  max-width: 870px;
+  padding: 3%;
+  width: 90%;
+}
+
 .App {
-
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-.App-body {
-  margin-left: 100px;
-  margin-right: 100px;
-}
 
 .App-header {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: -webkit-linear-gradient(#BDBDBD, #E6E6E6);
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 70px;
-  float: left;
-  padding: 5px;
+.App-link {
+  color: #09d3ac;
 }
 
-.App-title {
-  display: inline-block;
-  color: #2E3B0B;
-  text-shadow: 2px 2px 4px white;
-  font-size: 2.3em;
-  float: left;
-  padding-left: 10px;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.App-nav {
-  font-size: 1.5em;
-  color: #2E3B0B;
-  display: inline-block;
-  float: right;
-  padding-right: 60px;
+.card-style {
+  text-align: left;
+  line-height: 20px;
+  max-width: 250px;
+  padding: 7px;
 
 }
 
-.App-nav-link {
-  display: inline-block;
-  color: #2E3B0B;
-  padding-right: 20px;
-  padding-top: 30px;
-  text-decoration: none;
+.card-title-style {
+  font-weight: bold;
 }
 
-.App-intro {
-  font-size: large;
-  text-align: center;
+.card-style img {
+  height: 250px;
 }
 
-.App-form {
-  font-size: medium;
-  /*padding-right: 20px;*/
+.footer {
+  font-family: 'Cambria';
+  font-size: 12px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.home img {
+  height: 400px;
 }

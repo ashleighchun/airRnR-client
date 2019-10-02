@@ -7,7 +7,7 @@ const link={
    margin: '0',
    background: '#9c988f',
    textDecoration: 'none',
-   fontFamily: 'Garamond',
+   fontFamily: 'Typewriter',
    fontSize: 12,
    color: 'white'
 }
@@ -23,25 +23,24 @@ const NavBar = () => {
         }}
       >Home</NavLink>
 
-    <NavLink to='/books'
-         exact
-         style={link}
-         activeStyle={{
-            background: 'black'
-        }}
-     >Your Bookings</NavLink>
+      <NavLink to='/trips'
+           exact
+           style={link}
+           activeStyle={{
+              background: 'black'
+          }}
+       >My Bookings</NavLink>
 
-    <NavLink
-         to='/books/new'
+    <NavLink to='/bookings'
          exact
          style={link}
          activeStyle={{
             background: 'black'
         }}
-     >Add a Booking</NavLink>
+     >Add a new Booking</NavLink>
+
 
    </div>
-    </div>
   );
 };
 

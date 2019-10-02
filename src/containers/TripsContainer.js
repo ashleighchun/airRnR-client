@@ -1,30 +1,30 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import AllButton from '../components/AllButton'
-import TripButton from '../components/TripButton'
+import TripInput from '../components/TripInput'
+import TripsList from '../components/TripsList'
+import { getTrips } from '../actions/trips'
 
 class TripsContainer extends Component {
+    componentDidMount(){
+        this.props.getTrips()
+    }
 
-  render(){
-
-    const trips = this.props.trips.map(trip => <TripButton key={trip.id} trip={trip} handleThisClick={this.props.handleClick} /> )
-
-    return (
-      <div>
-        <h3>Select trip to filter bookings</h3>
-        <AllButton handleThisClick={this.props.handleClick} />
-        {/* { trips } */}
-        {this.props.loading ? <h3>Loading...</h3> : trips }
-      </div>
-    )
-  }
+    render() {
+        return(
+            <div className='trips-container'>
+                <h2>My Trips</h2>
+                <TripInput/>
+                {this.props.loading ? <h3>Loading...</h3> : <TripsList trips={this.props.trips} />}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    trips: state.tripReducer.trips,
-    loading: state.tripReducer.loading
-  }
+    return {
+      trips: state.tripReducer.trips,
+      loading: state.tripReducer.loading
+    }
 }
 
-export default connect(mapStateToProps)(TripsContainer)
+export default connect(mapStateToProps, { getTrips })(TripsContainer)
