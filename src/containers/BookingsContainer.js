@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Trip from '../components/Trip'
-import TripUpdate from '../components/TripUpdate'
-import BookingInput from '../components/BookingInput'
+import BookingForm from '../components/BookingForm'
 import BookingsList from '../components/BookingsList'
 import { getBookings, deleteBooking } from '../actions/bookings'
 
 
-class TripContainer extends Component {
+class BookingsContainer extends Component {
     componentDidMount(){
         this.props.getBookings()
     }
@@ -18,12 +17,8 @@ class TripContainer extends Component {
 
     render() {
         return(
-            <div className='trip-container'>
-                <Trip trip={this.props.trip} />
-                <TripUpdate trip={this.props.trip} />
-                <hr/>
-
-                <BookingInput trip_id={this.props.trip.id}/>
+            <div className='bookings-container'>
+              <h1>My Bookings</h1>
                 {this.props.loading ? <h3>Loading...</h3> : <BookingsList bookings={this.props.bookings} handleOnClick={this.handleClick}/>}
             </div>
         )
@@ -38,4 +33,4 @@ const mapStateToProps = (state, props) => {
     }
 }
 
-export default connect(mapStateToProps, { getBookings, deleteBooking })(TripContainer)
+export default connect(mapStateToProps, { getBookings, deleteBooking })(BookingsContainer)

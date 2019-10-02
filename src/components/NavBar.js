@@ -23,7 +23,7 @@ const NavBar = () => {
         }}
       >Home</NavLink>
 
-      <NavLink to='/trips'
+      <NavLink to='/bookings'
            exact
            style={link}
            activeStyle={{
@@ -31,7 +31,7 @@ const NavBar = () => {
           }}
        >My Bookings</NavLink>
 
-    <NavLink to='/bookings'
+    <NavLink to='/bookings/new'
          exact
          style={link}
          activeStyle={{

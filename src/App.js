@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './containers/Home'
+
+import Home from './components/Home'
+import NavBar from './components/NavBar'
+
 import TripsContainer from './containers/TripsContainer'
-import TripContainer from './containers/TripContainer'
-import Navigation from './components/NavBar'
+import BookingsContainer from './containers/BookingsContainer'
+
 
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Navigation />
+        <NavBar />
         <div className="App">
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route exact path='/trips' component={TripsContainer}/>
-            <Route path='/trip/:id' component={TripContainer}/>
+            <Route exact path='/bookings' component={BookingsContainer}/>
+            <Route path='/bookings/new' component={BookingFormContainer}/>
           </Switch>
         </div>
       </Router>
