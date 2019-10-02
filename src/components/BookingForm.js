@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addBooking } from '../actions/bookings'
 
-class BookingInput extends Component {
+class BookingForm extends Component {
   constructor(props) {
     super(props)
       this.state = {
+        trip_id: '',
+        location: '',
         booking_type: '',
         start_date: '',
         end_date: '',
         booking_cost: '',
         details: '',
-        trip_id: props.trip_id,
         loading: false,
         showForm: false
       }
@@ -31,17 +32,20 @@ class BookingInput extends Component {
     }
 
 
-    handleSubmit = event => {
+    handleOnSubmit = event => {
       event.preventDefault()
-        const meetup = {...this.state}
-        this.props.addMeetup(meetup)
+        const booking = {...this.state}
+        this.props.addBooking(booking).then( () =>
+        this.props.history.push('/bookings')
+        )
         this.setState({
-          booking_type: 'flight',
+          trip_id: '',
+          location: '',
+          booking_type: '',
           start_date: '',
           end_date: '',
           booking_cost: '',
           details: '',
-          trip_id: '',
           loading: false,
           showForm: false
       })
@@ -51,8 +55,18 @@ class BookingInput extends Component {
       const form =
           <form onSubmit={this.handleSubmit}>
 
-            <label>Type of Booking: </label>
-            <input type='text' name='booking_type' value={this.state.booking_type} onChange={this.handleChange} /><br/>
+            <select id="trip_id" size="1" onChange={this.handleOnChange}>
+              <option value="" disabled selected>Select Trip Type</option>
+              <option value={this.props.trips[0].id}>{this.props.trips[0].trip_type}</option>
+              <option value={this.props.trips[1].id}>{this.props.trips[1].trip_type}</option>
+              <option value={this.props.trips[2].id}>{this.props.trips[2].trip_type}</option>
+              <option value={this.props.trips[3].id}>{this.props.trips[3].trip_type}</option>
+              <option value={this.props.trips[4].id}>{this.props.trips[4].trip_type}</option>
+              <option value={this.props.trips[5].id}>{this.props.trips[5].trip_type}</option>
+            </select>
+
+            <label>Location: </label>
+            <input type='text' name='location' value={this.state.location} onChange={this.handleChange} /><br/>
 
 
             <label>Start Date:</label>
@@ -84,5 +98,12 @@ class BookingInput extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+  console.log("FORM", state)
+  return {
+    trips: state.tripReducer.trips
+  }
+}
 
-export default connect(null, { addBooking })(BookingInput)
+
+export default connect(mapStateToProps, { addBooking })(BookingForm)
