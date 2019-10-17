@@ -1,10 +1,9 @@
-import { combineReducers } from 'redux';
-import bookingReducer from './bookingReducer';
-import tripReducer from './tripReducer';
+import { combineReducers } from 'redux'
+import bookingReducer from './bookingReducer'
+
 
 const rootReducer = combineReducers({
-  bookingReducer,
-  tripReducer
-});
+  bookings: bookingReducer
+})
 
-export default rootReducer;
+export default rootReducer

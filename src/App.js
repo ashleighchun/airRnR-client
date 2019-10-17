@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
 import NavBar from './components/NavBar'
 
-import TripsContainer from './containers/TripsContainer'
+import NewBookingContainer from './containers/NewBookingContainer'
 import BookingsContainer from './containers/BookingsContainer'
 
 
@@ -18,7 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/bookings' component={BookingsContainer}/>
-            <Route path='/bookings/new' component={BookingFormContainer}/>
+            <Route path='/bookings/new' component={NewBookingContainer}/>
           </Switch>
         </div>
       </Router>

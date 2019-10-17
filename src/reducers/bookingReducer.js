@@ -1,11 +1,13 @@
-export default (state = {bookings: []}, action ) => {
+export default (state = {bookings: [], loading: false}, action) => {
   switch(action.type) {
     case 'LOADING_BOOKINGS':
+    debugger
       return {
-      ...state,
-      loading: true
+        ...state,
+        loading: true
       }
     case 'FETCH_BOOKINGS':
+    debugger
       return {
         ...state,
         bookings: action.payload,
@@ -25,13 +27,11 @@ export default (state = {bookings: []}, action ) => {
         loading: false
       }
     case 'ADD_BOOKING':
-      console.log("Booking selected to add")
       return {
         ...state,
         loading: true
       }
     case 'BOOKING_ADDED':
-      console.log("Booking has been added")
       return {
         ...state,
         bookings: [...state.bookings, action.payload],

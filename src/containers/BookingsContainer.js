@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Trip from '../components/Trip'
-import BookingForm from '../components/BookingForm'
 import BookingsList from '../components/BookingsList'
-import { getBookings, deleteBooking } from '../actions/bookings'
+import { getBookings } from '../actions/bookings'
 
 
 class BookingsContainer extends Component {
@@ -11,26 +9,27 @@ class BookingsContainer extends Component {
         this.props.getBookings()
     }
 
-    handleClick = (e) => {
-        this.props.deleteBooking(e.target.id)
-    }
+
 
     render() {
         return(
             <div className='bookings-container'>
               <h1>My Bookings</h1>
-                {this.props.loading ? <h3>Loading...</h3> : <BookingsList bookings={this.props.bookings} handleOnClick={this.handleClick}/>}
+              {console.log(this.props.loading, this.props.bookings)}
+                {this.props.bookings.loading ? <h3>Loading...</h3> : <BookingsList bookings={this.props.bookings.bookings} />}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state, props) => {
-    return {
-      trip: state.tripReducer.trips.filter(f => f.id === parseInt(props.match.params.id))[0],
-      bookings: state.bookingReducer.bookings.filter(m => m.trip_id === parseInt(props.match.params.id)),
-      loading: state.bookingReducer.loading
-    }
+/*align state with the component*/
+const mapStateToProps = (state) => {
+debugger
+  return {
+    bookings: state.bookings,
+    loading: state.loading
+  }
 }
 
-export default connect(mapStateToProps, { getBookings, deleteBooking })(BookingsContainer)
+
+export default connect(mapStateToProps, { getBookings })(BookingsContainer)

@@ -1,4 +1,4 @@
-export const createBookings = () => {
+export const getBookings = () => {
     return (dispatch) => {
         dispatch({type: 'LOADING_BOOKINGS'})
         return fetch('/bookings')
